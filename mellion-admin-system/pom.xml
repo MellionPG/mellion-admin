@@ -25,4 +25,13 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <!-- 基础服务模块 -->
+            <groupId>com.mellion</groupId>
+            <artifactId>mellion-admin-base</artifactId>
+            <version>${revision}</version>
+        </dependency>
+    </dependencies>
+
 </project>
