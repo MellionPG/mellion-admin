@@ -26,12 +26,6 @@
     </properties>
 
     <dependencies>
-        <!-- SpringWebMVC -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
         <dependency>
             <!-- 基础服务模块 -->
             <groupId>com.mellion</groupId>
