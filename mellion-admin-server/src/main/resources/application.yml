@@ -2,3 +2,18 @@ server:
   port: 5000
   servlet:
     context-path: /api/v1.0
+knife4j:
+  enable: true
+  openapi:
+    title: knife4j后台服务API接口文档
+    description: "使用knife4j搭建的后台服务API接口文档"
+    email: MellionPG@outlook.com
+    concat: MellionPG
+    version: v1.0
+    terms-of-service-url: http://localhost:5000
+    group:
+      system:
+        group-name: 测试管理分组
+        api-rule: package
+        api-rule-resources:
+          - com.mellion.admin.server.test
