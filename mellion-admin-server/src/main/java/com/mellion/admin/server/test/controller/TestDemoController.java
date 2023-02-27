@@ -22,7 +22,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/test/demo")
 @Validated
-@Api(tags = "测试样例接口")
+@Api(tags = "测试模块 - 样例接口")
 @RequiredArgsConstructor
 public class TestDemoController {
 
