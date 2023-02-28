@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mellion.admin.base.pojo.PageParam;
 import com.mellion.admin.base.pojo.ResponseResult;
 import com.mellion.admin.system.entity.TSystemDictDefine;
-import com.mellion.admin.system.service.SystemDictService;
+import com.mellion.admin.system.service.SystemDictDefineService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +29,7 @@ public class SystemDictDefineController {
     /**
      * 系统字典定义服务
      */
-    private final SystemDictService systemDictService;
+    private final SystemDictDefineService systemDictDefineService;
 
     /**
      * 根据id获取系统字典定义详情
@@ -40,7 +40,7 @@ public class SystemDictDefineController {
     @GetMapping
     @ApiOperation("根据id获取系统字典定义详情")
     public ResponseResult<TSystemDictDefine> getById(@RequestParam Long id) {
-        return ResponseResult.success(systemDictService.getById(id));
+        return ResponseResult.success(systemDictDefineService.getById(id));
     }
 
     /**
@@ -52,7 +52,7 @@ public class SystemDictDefineController {
     @PostMapping
     @ApiOperation("新增系统字典定义")
     public ResponseResult<TSystemDictDefine> add(@RequestBody @Valid TSystemDictDefine tSystemDictDefine) {
-        return ResponseResult.success(systemDictService.add(tSystemDictDefine));
+        return ResponseResult.success(systemDictDefineService.add(tSystemDictDefine));
     }
 
     /**
@@ -64,7 +64,7 @@ public class SystemDictDefineController {
     @PutMapping
     @ApiOperation("根据id修改系统字典定义")
     public ResponseResult<TSystemDictDefine> editById(@RequestBody @Valid TSystemDictDefine tSystemDictDefine) {
-        return ResponseResult.success(systemDictService.editById(tSystemDictDefine));
+        return ResponseResult.success(systemDictDefineService.editById(tSystemDictDefine));
     }
 
     /**
@@ -76,7 +76,7 @@ public class SystemDictDefineController {
     @DeleteMapping
     @ApiOperation("根据id删除测试样例")
     public ResponseResult<Boolean> deleteById(@RequestParam Long id) {
-        return ResponseResult.success(systemDictService.deleteById(id));
+        return ResponseResult.success(systemDictDefineService.deleteById(id));
     }
 
     /**
@@ -88,7 +88,7 @@ public class SystemDictDefineController {
     @GetMapping("/page")
     @ApiOperation("分页获取系统字典定义")
     public ResponseResult<Page<TSystemDictDefine>> getPage(@Valid PageParam pageParam) {
-        return ResponseResult.success(systemDictService.getPage(pageParam));
+        return ResponseResult.success(systemDictDefineService.getPage(pageParam));
     }
 
 }

@@ -10,7 +10,7 @@ import com.mellion.admin.system.entity.TSystemDictDefine;
  * @author MellionPG
  * @date 2023/2/28 11:28
  **/
-public interface SystemDictService {
+public interface SystemDictDefineService {
 
     /**
      * 根据id获取系统字典定义详情
@@ -21,7 +21,7 @@ public interface SystemDictService {
     TSystemDictDefine getById(Long id);
 
     /**
-     * 新增测试样例
+     * 新增测系统字典定义
      *
      * @param tSystemDictDefine 系统字典定义
      * @return 系统字典定义
@@ -29,7 +29,7 @@ public interface SystemDictService {
     TSystemDictDefine add(TSystemDictDefine tSystemDictDefine);
 
     /**
-     * 修改测试样例
+     * 修改系统字典定义
      *
      * @param tSystemDictDefine 系统字典定义
      * @return 系统字典定义
