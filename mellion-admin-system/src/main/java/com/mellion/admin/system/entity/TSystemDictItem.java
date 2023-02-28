@@ -61,6 +61,12 @@ public class TSystemDictItem extends BaseEntity {
     private Integer colorType;
 
     /**
+     * 状态(1正常 0停用)
+     */
+    @ApiModelProperty("状态(1正常 0停用)")
+    private Integer status;
+
+    /**
      * 备注
      */
     @ApiModelProperty("备注")
