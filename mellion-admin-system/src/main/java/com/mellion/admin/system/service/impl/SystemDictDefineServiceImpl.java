@@ -6,7 +6,7 @@ import com.mellion.admin.base.exception.ServiceException;
 import com.mellion.admin.base.pojo.PageParam;
 import com.mellion.admin.system.entity.TSystemDictDefine;
 import com.mellion.admin.system.mapper.TSystemDictDefineMapper;
-import com.mellion.admin.system.service.SystemDictService;
+import com.mellion.admin.system.service.SystemDictDefineService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +20,7 @@ import java.util.Objects;
  **/
 @Service
 @RequiredArgsConstructor
-public class SystemDictServiceImpl implements SystemDictService {
+public class SystemDictDefineServiceImpl implements SystemDictDefineService {
 
     /**
      * 系统字典定义Mapper
