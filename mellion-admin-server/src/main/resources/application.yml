@@ -45,3 +45,4 @@ mybatis-plus:
 logging:
   level:
     com.mellion.admin.server.test.mapper: debug
+    com.mellion.admin.system.mapper: debug
