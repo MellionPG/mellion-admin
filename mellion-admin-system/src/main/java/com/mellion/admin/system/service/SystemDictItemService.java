@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mellion.admin.base.pojo.PageParam;
 import com.mellion.admin.system.entity.TSystemDictItem;
 
+import java.util.Map;
+
 /**
  * 系统字典项服务接口
  *
@@ -51,5 +53,13 @@ public interface SystemDictItemService {
      * @return 分页后的系统字典项
      */
     Page<TSystemDictItem> getPage(PageParam pageParam);
+
+    /**
+     * 根据字典定义ID查所有字典项的value和text
+     *
+     * @param defineId 字典定义ID
+     * @return 由字典项value和text组成的map
+     */
+    Map<String, String> getItemValueAndTextByDefineId(Long defineId);
 
 }

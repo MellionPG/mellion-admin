@@ -10,6 +10,9 @@ import com.mellion.admin.system.service.SystemDictItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -67,4 +70,16 @@ public class SystemDictItemServiceImpl implements SystemDictItemService {
         return tSystemDictItemMapper.selectPage(page, null);
     }
 
+    @Override
+    public Map<String, String> getItemValueAndTextByDefineId(Long defineId) {
+        if (Objects.isNull(defineId)) {
+            return null;
+        }
+        List<Map<String, String>> mapList = tSystemDictItemMapper.getItemValueAndTextByDefineId(defineId);
+        Map<String, String> resultMap = new HashMap<>(mapList.size());
+        mapList.forEach(item -> {
+            resultMap.put(item.get("value"), item.get("text"));
+        });
+        return resultMap;
+    }
 }

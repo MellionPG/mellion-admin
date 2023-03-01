@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Map;
 
 /**
  * 统一响应结果对象，封装响应结果
@@ -32,6 +33,11 @@ public class ResponseResult<T> implements Serializable {
      * 响应具体数据
      */
     private T data;
+
+    /**
+     * 响应数据含有的字典数据，通过切面自动注入
+     */
+    private Map<String, Map<String, String>> dict;
 
     /**
      * 封装请求成功但不附带数据的结果对象

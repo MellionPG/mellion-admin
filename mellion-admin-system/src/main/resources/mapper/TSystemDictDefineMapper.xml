@@ -4,4 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.mellion.admin.system.mapper.TSystemDictDefineMapper">
+    <select id="getDefineIdByCode" resultType="java.lang.Long">
+        select id
+        from t_system_dict_define
+        where code = #{code};
+    </select>
 </mapper>

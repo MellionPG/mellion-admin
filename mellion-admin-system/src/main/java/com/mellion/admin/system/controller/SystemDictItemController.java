@@ -3,6 +3,7 @@ package com.mellion.admin.system.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mellion.admin.base.pojo.PageParam;
 import com.mellion.admin.base.pojo.ResponseResult;
+import com.mellion.admin.system.annotation.EnableDictInjection;
 import com.mellion.admin.system.entity.TSystemDictItem;
 import com.mellion.admin.system.service.SystemDictItemService;
 import io.swagger.annotations.Api;
@@ -24,6 +25,7 @@ import javax.validation.Valid;
 @Validated
 @Api(tags = "系统模块 - 字典项接口")
 @RequiredArgsConstructor
+@EnableDictInjection
 public class SystemDictItemController {
 
     /**

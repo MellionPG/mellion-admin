@@ -1,6 +1,7 @@
 package com.mellion.admin.system.entity;
 
 import com.mellion.admin.base.pojo.BaseEntity;
+import com.mellion.admin.system.annotation.DictDefineProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -58,12 +59,14 @@ public class TSystemDictItem extends BaseEntity {
      * 颜色类型(枚举)
      */
     @ApiModelProperty("颜色类型(枚举)")
+    @DictDefineProperty(dictCode = "color_type")
     private Integer colorType;
 
     /**
      * 状态(1正常 0停用)
      */
     @ApiModelProperty("状态(1正常 0停用)")
+    @DictDefineProperty(dictCode = "status")
     private Integer status;
 
     /**

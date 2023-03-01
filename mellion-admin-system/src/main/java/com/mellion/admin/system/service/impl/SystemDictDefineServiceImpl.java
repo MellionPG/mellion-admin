@@ -8,6 +8,7 @@ import com.mellion.admin.system.entity.TSystemDictDefine;
 import com.mellion.admin.system.mapper.TSystemDictDefineMapper;
 import com.mellion.admin.system.service.SystemDictDefineService;
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -67,4 +68,11 @@ public class SystemDictDefineServiceImpl implements SystemDictDefineService {
         return tSystemDictDefineMapper.selectPage(page, null);
     }
 
+    @Override
+    public Long getDefineIdByCode(String code) {
+        if (Strings.isBlank(code)) {
+            return null;
+        }
+        return tSystemDictDefineMapper.getDefineIdByCode(code);
+    }
 }

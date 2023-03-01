@@ -12,4 +12,13 @@ import org.apache.ibatis.annotations.Mapper;
  **/
 @Mapper
 public interface TSystemDictDefineMapper extends BaseMapper<TSystemDictDefine> {
+
+    /**
+     * 根据编码获取id
+     *
+     * @param code 字典编码
+     * @return 字典定义ID
+     */
+    Long getDefineIdByCode(String code);
+
 }

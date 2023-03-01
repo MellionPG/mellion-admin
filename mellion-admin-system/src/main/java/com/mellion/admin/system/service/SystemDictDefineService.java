@@ -52,4 +52,12 @@ public interface SystemDictDefineService {
      */
     Page<TSystemDictDefine> getPage(PageParam pageParam);
 
+    /**
+     * 根据编码获取id
+     *
+     * @param code 字典编码
+     * @return 字典定义ID
+     */
+    Long getDefineIdByCode(String code);
+
 }

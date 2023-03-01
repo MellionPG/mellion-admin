@@ -4,4 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.mellion.admin.system.mapper.TSystemDictItemMapper">
+    <select id="getItemValueAndTextByDefineId" resultType="java.util.Map">
+        select value, text
+        from t_system_dict_item
+        where define_id = #{defineId}
+    </select>
 </mapper>
