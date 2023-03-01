@@ -42,9 +42,9 @@ public class TSystemDictDefine extends BaseEntity {
     private String name;
 
     /**
-     * 状态(1正常 0停用)
+     * 状态(枚举)
      */
-    @ApiModelProperty("状态(1正常 0停用)")
+    @ApiModelProperty("状态(枚举)")
     @DictDefineProperty(dictCode = "status")
     private Integer status;
 
