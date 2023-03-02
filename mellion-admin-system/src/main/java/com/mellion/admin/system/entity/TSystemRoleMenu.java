@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * 系统角色和菜单关联表
  *
@@ -25,12 +27,14 @@ public class TSystemRoleMenu extends BaseEntity {
      * 角色ID
      */
     @ApiModelProperty("角色ID")
+    @NotNull(message = "角色ID不能为空")
     private Long roleId;
 
     /**
      * 菜单ID
      */
     @ApiModelProperty("菜单ID")
+    @NotNull(message = "菜单ID不能为空")
     private Long menuId;
 
 }

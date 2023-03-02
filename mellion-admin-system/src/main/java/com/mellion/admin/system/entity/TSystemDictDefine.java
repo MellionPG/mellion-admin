@@ -9,7 +9,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -29,7 +29,7 @@ public class TSystemDictDefine extends BaseEntity {
      * 字典编码
      */
     @ApiModelProperty("字典编码")
-    @NotBlank(message = "字典编码不能空缺或为空串")
+    @NotNull(message = "字典编码不能空")
     @Size(max = 64, message = "字典编码长度不能超过64位")
     private String code;
 
@@ -37,7 +37,7 @@ public class TSystemDictDefine extends BaseEntity {
      * 字典名称
      */
     @ApiModelProperty("字典名称")
-    @NotBlank(message = "字典名称不能空缺或为空串")
+    @NotNull(message = "字典名称不能空")
     @Size(max = 64, message = "字典名称长度不能超过64位")
     private String name;
 
@@ -46,12 +46,14 @@ public class TSystemDictDefine extends BaseEntity {
      */
     @ApiModelProperty("状态(枚举)")
     @DictDefineProperty(dictCode = "status")
+    @NotNull(message = "状态不能为空")
     private Integer status;
 
     /**
      * 备注
      */
     @ApiModelProperty("备注")
+    @Size(max = 256, message = "备注信息不能超过256位")
     private String remark;
 
 }
