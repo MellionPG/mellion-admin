@@ -21,7 +21,7 @@ public interface SystemDictDefineService {
     TSystemDictDefine getById(Long id);
 
     /**
-     * 新增测系统字典定义
+     * 新增系统字典定义
      *
      * @param tSystemDictDefine 系统字典定义
      * @return 系统字典定义
