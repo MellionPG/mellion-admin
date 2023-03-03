@@ -48,16 +48,25 @@ public class TSystemMenu extends BaseEntity {
     private Integer menuType;
 
     /**
+     * 组件路径
+     */
+    @ApiModelProperty("组件路径")
+    @Size(max = 256, message = "组件路径的长度不能超过256位")
+    private String componentUrl;
+
+    /**
      * 请求路径
      */
     @ApiModelProperty("请求路径")
+    @Size(max = 256, message = "请求路径的长度不能超过256位")
     private String requestUrl;
 
     /**
      * 请求方法
      */
     @ApiModelProperty("请求方法")
-    private String requestMethod;
+    @DictDefineProperty(dictCode = "request_method")
+    private Integer requestMethod;
 
     /**
      * 显示顺序
