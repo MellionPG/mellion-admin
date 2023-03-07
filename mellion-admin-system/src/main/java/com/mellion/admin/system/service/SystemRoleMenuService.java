@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mellion.admin.base.pojo.PageParam;
 import com.mellion.admin.system.entity.TSystemRoleMenu;
 
+import java.util.List;
+
 /**
  * 系统角色和菜单关联服务接口
  *
@@ -51,5 +53,13 @@ public interface SystemRoleMenuService {
      * @return 分页后的系统角色和菜单关联
      */
     Page<TSystemRoleMenu> getPage(PageParam pageParam);
+
+    /**
+     * 根据角色id查询菜单ids
+     *
+     * @param roleId 角色id
+     * @return 菜单id列表
+     */
+    List<Long> getMenuIdsByRoleId(Long roleId);
 
 }

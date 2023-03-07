@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mellion.admin.base.pojo.PageParam;
 import com.mellion.admin.system.entity.TSystemUserRole;
 
+import java.util.List;
+
 /**
  * 系统用户和角色关联服务接口
  *
@@ -51,5 +53,13 @@ public interface SystemUserRoleService {
      * @return 分页后的系统用户和角色关联
      */
     Page<TSystemUserRole> getPage(PageParam pageParam);
+
+    /**
+     * 根据用户id查询多个角色id
+     *
+     * @param userId 用户id
+     * @return 角色id列表
+     */
+    List<Long> getRoleIdsByUserId(Long userId);
 
 }

@@ -10,6 +10,7 @@ import com.mellion.admin.system.service.SystemRoleMenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -67,4 +68,8 @@ public class SystemRoleMenuServiceImpl implements SystemRoleMenuService {
         return tSystemRoleMenuMapper.selectPage(page, null);
     }
 
+    @Override
+    public List<Long> getMenuIdsByRoleId(Long roleId) {
+        return tSystemRoleMenuMapper.selectMenuIdsByRoleId(roleId);
+    }
 }

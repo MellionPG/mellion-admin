@@ -3,6 +3,9 @@ package com.mellion.admin.system.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mellion.admin.base.pojo.PageParam;
 import com.mellion.admin.system.entity.TSystemUser;
+import com.mellion.admin.system.param.LoginFormRequestParam;
+import com.mellion.admin.system.vo.UserLoginTokenVO;
+import com.mellion.admin.system.vo.UserPermissionInfoVO;
 
 /**
  * 系统用户服务接口
@@ -51,5 +54,21 @@ public interface SystemUserService {
      * @return 分页后的系统用户
      */
     Page<TSystemUser> getPage(PageParam pageParam);
+
+    /**
+     * 账号密码登录
+     *
+     * @param loginForm 登录表单
+     * @return 登录结果
+     */
+    UserLoginTokenVO login(LoginFormRequestParam loginForm);
+
+    /**
+     * 获取用户权限信息
+     *
+     * @param token 登录令牌
+     * @return 权限信息
+     */
+    UserPermissionInfoVO getPermissionInfo(String token) throws NoSuchFieldException;
 
 }

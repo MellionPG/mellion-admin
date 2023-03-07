@@ -5,7 +5,10 @@ import com.mellion.admin.base.pojo.PageParam;
 import com.mellion.admin.base.pojo.ResponseResult;
 import com.mellion.admin.system.annotation.EnableDictInjection;
 import com.mellion.admin.system.entity.TSystemUser;
+import com.mellion.admin.system.param.LoginFormRequestParam;
 import com.mellion.admin.system.service.SystemUserService;
+import com.mellion.admin.system.vo.UserLoginTokenVO;
+import com.mellion.admin.system.vo.UserPermissionInfoVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -91,6 +94,30 @@ public class SystemUserController {
     @ApiOperation("分页获取系统用户")
     public ResponseResult<Page<TSystemUser>> getPage(@Valid PageParam pageParam) {
         return ResponseResult.success(systemUserService.getPage(pageParam));
+    }
+
+    /**
+     * 账号密码登录
+     *
+     * @param loginForm 登录表单
+     * @return 登录结果
+     */
+    @PostMapping("/login")
+    @ApiOperation("账号密码登录")
+    public ResponseResult<UserLoginTokenVO> login(@RequestBody @Valid LoginFormRequestParam loginForm) throws NoSuchFieldException {
+        return ResponseResult.success(systemUserService.login(loginForm));
+    }
+
+    /**
+     * 获取用户权限信息
+     *
+     * @param token 登录令牌
+     * @return 权限信息
+     */
+    @GetMapping("/permission")
+    @ApiOperation("获取用户权限信息")
+    public ResponseResult<UserPermissionInfoVO> getPermissionInfo(@RequestHeader("Authorization") String token) throws NoSuchFieldException {
+        return ResponseResult.success(systemUserService.getPermissionInfo(token));
     }
 
 }

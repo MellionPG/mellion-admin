@@ -10,6 +10,7 @@ import com.mellion.admin.system.service.SystemUserRoleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -65,6 +66,11 @@ public class SystemUserRoleServiceImpl implements SystemUserRoleService {
     public Page<TSystemUserRole> getPage(PageParam pageParam) {
         Page<TSystemUserRole> page = new Page<>(pageParam.getCurrentPage(), pageParam.getPageSize());
         return tSystemUserRoleMapper.selectPage(page, null);
+    }
+
+    @Override
+    public List<Long> getRoleIdsByUserId(Long userId) {
+        return tSystemUserRoleMapper.selectRoleIdsByUserId(userId);
     }
 
 }
