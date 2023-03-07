@@ -2,6 +2,8 @@ package com.mellion.admin.base.pojo;
 
 import com.mellion.admin.base.enums.BaseResponseStatus;
 import com.mellion.admin.base.interfaces.ResponseStatus;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Data;
 
@@ -17,26 +19,31 @@ import java.util.Map;
  **/
 @Data
 @Builder
+@ApiModel("请求响应结果")
 public class ResponseResult<T> implements Serializable {
 
     /**
      * 响应状态码
      */
+    @ApiModelProperty("响应状态码")
     private Integer code;
 
     /**
      * 响应消息
      */
+    @ApiModelProperty("响应消息")
     private String msg;
 
     /**
      * 响应具体数据
      */
+    @ApiModelProperty("响应具体数字")
     private T data;
 
     /**
      * 响应数据含有的字典数据，通过切面自动注入
      */
+    @ApiModelProperty("字典数据")
     private Map<String, Map<String, String>> dict;
 
     /**
