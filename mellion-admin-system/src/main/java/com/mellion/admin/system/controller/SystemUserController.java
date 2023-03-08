@@ -104,7 +104,7 @@ public class SystemUserController {
      */
     @PostMapping("/login")
     @ApiOperation("账号密码登录")
-    public ResponseResult<UserLoginTokenVO> login(@RequestBody @Valid LoginFormRequestParam loginForm) throws NoSuchFieldException {
+    public ResponseResult<UserLoginTokenVO> login(@RequestBody @Valid LoginFormRequestParam loginForm) {
         return ResponseResult.success(systemUserService.login(loginForm));
     }
 
@@ -118,6 +118,19 @@ public class SystemUserController {
     @ApiOperation("获取用户权限信息")
     public ResponseResult<UserPermissionInfoVO> getPermissionInfo(@RequestHeader("Authorization") String token) throws NoSuchFieldException {
         return ResponseResult.success(systemUserService.getPermissionInfo(token));
+    }
+
+    /**
+     * 登出系统
+     *
+     * @param token 登录令牌
+     * @return 无
+     */
+    @PostMapping("/logout")
+    @ApiOperation("用户登出")
+    public ResponseResult<Object> logout(@RequestHeader("Authorization") String token) {
+        systemUserService.logout(token);
+        return ResponseResult.success();
     }
 
 }

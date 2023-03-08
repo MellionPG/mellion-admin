@@ -71,4 +71,11 @@ public interface SystemUserService {
      */
     UserPermissionInfoVO getPermissionInfo(String token) throws NoSuchFieldException;
 
+    /**
+     * 登出系统
+     *
+     * @param token 登录令牌
+     */
+    void logout(String token);
+
 }

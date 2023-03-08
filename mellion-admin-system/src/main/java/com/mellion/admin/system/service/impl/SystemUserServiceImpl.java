@@ -7,6 +7,7 @@ import com.mellion.admin.base.exception.ServiceException;
 import com.mellion.admin.base.pojo.PageParam;
 import com.mellion.admin.base.utils.RedisUtil;
 import com.mellion.admin.system.annotation.DictDefineProperty;
+import com.mellion.admin.system.constant.RedisKeyPrefixConstant;
 import com.mellion.admin.system.dto.UserPermissionInfoDTO;
 import com.mellion.admin.system.entity.TSystemMenu;
 import com.mellion.admin.system.entity.TSystemUser;
@@ -130,9 +131,9 @@ public class SystemUserServiceImpl implements SystemUserService {
         String token = userInDb.getId().toString() + UUID.randomUUID();
         // 把token存到redis
         if (loginForm.getSaveLoginStatus()) {
-            RedisUtil.set("system:user:token:" + userInDb.getId(), token, 15 * 24 * 60 * 60);
+            RedisUtil.set(RedisKeyPrefixConstant.SYSTEM_USER_TOKEN + userInDb.getId(), token, 15 * 24 * 60 * 60);
         } else {
-            RedisUtil.set("system:user:token:" + userInDb.getId(), token, 24 * 60 * 60);
+            RedisUtil.set(RedisKeyPrefixConstant.SYSTEM_USER_TOKEN + userInDb.getId(), token, 24 * 60 * 60);
         }
         // 完成把前端要的权限信息封装成vo，返回给前端
         return new UserLoginTokenVO(token);
@@ -193,7 +194,7 @@ public class SystemUserServiceImpl implements SystemUserService {
         }
 
         // 3. 把权限信息对象存储到redis
-        RedisUtil.set("system:user:permission:" + userId, userPermissionInfo, 15 * 24 * 60 * 60);
+        RedisUtil.set(RedisKeyPrefixConstant.SYSTEM_USER_PERMISSION + userId, userPermissionInfo, 15 * 24 * 60 * 60);
 
         return systemMenus;
     }
@@ -218,4 +219,13 @@ public class SystemUserServiceImpl implements SystemUserService {
         return userPermissionInfo;
     }
 
+    @Override
+    public void logout(String token) {
+        // 先根据token拿到用户id
+        String userId = token.substring(0, 19);
+
+        // 移除redis中的token和permission信息
+        RedisUtil.remove(RedisKeyPrefixConstant.SYSTEM_USER_TOKEN + userId);
+        RedisUtil.remove(RedisKeyPrefixConstant.SYSTEM_USER_PERMISSION + userId);
+    }
 }
