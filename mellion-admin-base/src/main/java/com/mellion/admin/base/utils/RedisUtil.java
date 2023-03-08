@@ -22,6 +22,15 @@ public class RedisUtil {
      */
     private static RedisTemplate<String, Object> redisTemplate = SpringUtil.getBean("redisTemplate", RedisTemplate.class);
 
+    /**
+     * 移除指定的key
+     *
+     * @param key 要移除的key
+     */
+    public static void remove(String key) {
+        redisTemplate.delete(key);
+    }
+
     //- - - - - - - - - - - - - - - - - - - - -  String类型 - - - - - - - - - - - - - - - - - - - -
 
     /**
